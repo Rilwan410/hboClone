@@ -8,7 +8,7 @@ export default function SearchModal() {
   }
   return (
     // search-modal__active
-    <div className="search-modal  search-modal__active  items-center hidden  z-13 fixed bg-black h-screen w-full top-0 left-0  py-[20px] ">
+    <div className="search-modal   items-center hidden  z-13 fixed bg-black h-screen w-full top-0 left-0  py-[20px] ">
         
       <div className="search-modal__input-group flex justify-center items-center mb-[3rem] ">
         <input

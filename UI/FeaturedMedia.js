@@ -1,4 +1,8 @@
+import { useStateContext } from "@/HBOProvider"
+
+
 export default function FeaturedMedia() {
+  const  globalState = useStateContext()
   return (
     <>
       <div className="featured-media bg-black w-full min-h-[700px] h-screen relative overflow-hidden">
