@@ -61,25 +61,25 @@ let {user, setUser, createUser, userImage, circleColors, setBackground} = global
             <div className="create-user__colors flex justify-between ">
 
               <div
-                className={`create-user__color circle-one create-user__color--active rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[${circleColors.colorOne}]` }
+                className={`create-user__color circle-one create-user__color--active rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[linear-gradient(312deg,rgba(26,39,103)0%,rgba(48,20,94,1)45%,rgba(0,0,0,1)100%)]` }
                 onClick = {setBackground}
               />
 
               <div
-                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[${circleColors.colorTwo}]`} color = {'white'}
+                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[linear-gradient(135deg,rgba(195,139,34,1)2%,rgba(15,33,181,1)71%)]`} color = {'white'}
               />
 
               <div
-                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[${circleColors.colorThree}]`}
+                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[linear-gradient(135deg,rgba(167,195,34,1)22%,rgba(15,181,174,1)71%)]`}
               />
 
               <div
-                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[${circleColors.colorFour}]`}
+                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[linear-gradient(135deg,rgba(40,195,34,1)27%,rgba(104,15,181,1)71%)]`}
          
               />
 
               <div
-                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[${circleColors.colorFive}]`}
+                className={`create-user__color circle-two  rounded-[50%] w-[30px] h-[30px] cursor-pointer transition-transform duration-500 ease-in-out hover:scale-125 bg-[linear-gradient(135deg,rgba(55,34,195,1)27%,rgba(181,15,74,1)71%)]`}
                 
               />
 

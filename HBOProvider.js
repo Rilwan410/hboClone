@@ -16,11 +16,11 @@ export default function HBOProvider({children}){
     }
 
     const circleColors = {
-     colorOne: 'linear-gradient(312deg,rgba(26,39,103)0%,rgba(48,20,94,1)45%,rgba(0,0,0,1)100%)',
+     colorOne: '',
      colorTwo: 'linear-gradient(135deg,rgba(167,195,34,1)22%,rgba(15,181,174,1)71%)',
-     colorThree: 'linear-gradient(135deg,rgba(195,139,34,1)2%,rgba(15,33,181,1)71%)',
-     colorFour: 'linear-gradient(135deg,rgba(40,195,34,1)27%,rgba(104,15,181,1)71%)',
-     colorFive: 'linear-gradient(135deg,rgba(55,34,195,1)27%,rgba(181,15,74,1)71%)',
+     colorThree: '',
+     colorFour: '',
+     colorFive: '',
     }
 
 function setBackground(e){
