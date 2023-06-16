@@ -1,6 +1,10 @@
 import Account from "./Account";
 import SearchModal from "./SearchModal";
+import { useStateContext } from "@/HBOProvider";
 export default function Header({}) {
+
+  const globalState = useStateContext()
+  const {userImage} = globalState
   return (
     <header className="top-header  bg-[rgba(0,0,0,0)] flex justify-between items-center fixed top-0 left-0 w-full z-10 transition duration-300 ease-in-out  hover:bg-[rgba(0,0,0,1)] px-[50px] py-[15px] text-white ">
       <div className="top-header__left-side flex">
@@ -16,7 +20,7 @@ export default function Header({}) {
       <div className="top-header__account flex justify-center items-center ">
         <img
           className="top-header--user-img h-[30px] w-[30px] cursor-pointer rounded-[50%] border-[rgb(132,0,255)] object-cover object-center mr-4 border-[3px]"
-          src="https://randomuser.me/api/portraits/women/44.jpg"
+          src={userImage}
         />
         <div className="top-header__user-name">Susan</div>
       </div>

@@ -5,16 +5,16 @@ import { useRouter } from "next/router";
 
 export default function Home() {
 const router = useRouter()
-useEffect(()=>{
-  const loggedIn = false
-  if(!loggedIn){ 
-      router.push('/create')
-    }
-}, [])
+// useEffect(()=>{
+//   const loggedIn = false
+//   if(!loggedIn){ 
+//       router.push('/create')
+//     }
+// }, [])
 
   return (
     <>
-      <Login/>
+  SHOW HOME PAGE
     </>
   );
 }
