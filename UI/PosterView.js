@@ -1,3 +1,5 @@
+import { v4 } from "uuid";
+
 export default function PosterView() {
     function loopComp(comp, digit) {
       let thumbnails = [];

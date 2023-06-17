@@ -1,4 +1,9 @@
+import { useStateContext } from "@/HBOProvider";
+
 export default function SearchModal() {
+const globalState = useStateContext()
+const {searchModal, setSearchModal} = globalState
+
   function loopComp(comp, digit) {
     let thumbnails = [];
     for (let i = 0; i < digit; i++) {
@@ -6,9 +11,15 @@ export default function SearchModal() {
     }
     return thumbnails;
   }
+
+
+
+function closeSearchModal(){
+  setSearchModal(false)
+}
   return (
     // search-modal__active
-    <div className="search-modal   items-center hidden  z-13 fixed bg-black h-screen w-full top-0 left-0  py-[20px] ">
+    <div className={`search-modal ${searchModal ? "search-modal__active" : '' }  items-center invisible flex  z-13 fixed bg-black h-screen w-full top-0 left-0  py-[20px] `}>
         
       <div className="search-modal__input-group flex justify-center items-center mb-[3rem] ">
         <input
@@ -20,7 +31,7 @@ export default function SearchModal() {
         
  
         <div className = "search-modal__close-btn ">
-            <i className = "fas fa-times absolute  top-6 right-0 text-[3rem] p-[15px] cursor-pointer"/>
+            <i className = "fas fa-times absolute  top-6 right-0 text-[3rem] p-[15px] cursor-pointer" onClick ={closeSearchModal}/>
         </div>
       </div>
 
@@ -34,7 +45,7 @@ export default function SearchModal() {
         
         
         {loopComp(
-          <div className="search-modal__thumbnail opacity-0 flex-none w-[240px] h-[360px] relative">
+          <div className="search-modal__thumbnail opacity-0 flex-none w-[240px] h-[360px] relative" >
             <img
               src="https://m.media-amazon.com/images/I/61RfzoSxaJL._AC_UF894,1000_QL80_.jpg "
               className="object-cover object-center w-[240px] h-[360px]"

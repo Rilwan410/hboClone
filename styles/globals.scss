@@ -57,7 +57,7 @@ font-family:montserrat;
   border:2px solid white;
 }
 
-.side-nav__active{
+.side-nav__active {
   
   transform : translateX(0)
 }
@@ -144,6 +144,7 @@ color:white;
 
 .search-modal__active{
 display:flex;
+visibility:visible;
 flex-direction:column;
 }
 

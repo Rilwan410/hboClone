@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 export default function ForYouList() {
   function loopComp(comp, digit) {
     let thumbnails = [];

@@ -1,4 +1,11 @@
+import { useStateContext } from "@/HBOProvider";
+
+
+
 export default function Account() {
+const globalState = useStateContext()
+const {accountOpen, setAccountOpen} = globalState
+
     function loopComp(comp, digit) {
         let thumbnails = [];
         for (let i = 0; i < digit; i++) {
@@ -10,10 +17,11 @@ export default function Account() {
 
 
   return (
-    <div className="account  absolute top-0 right-0 h-[calc(100vh-60px)] mt-[60px] bg-[rgba(0,0,0,0.3)] flex backdrop-blur-[70px] translate-x-[100%] transition duration-400 ease-in-out">
-      <div className="account__details overflow-y-scroll p-[20px]">
+    // account--active
+    <div className={`account absolute ${accountOpen ? "account--active" : ''} top-0 right-0 h-[calc(100vh-60px)] mt-[60px] bg-[rgba(0,0,0,0.3)] flex backdrop-blur-[70px] translate-x-[100%] transition duration-400 ease-in-out`}>
+      <div className="account__details  p-[20px]">
         <div className="account__title  text-5xl mb-8">My List</div>
-        <div className="account__watch-list  grid grid-cols-3 gap-[15px] gap-y-[30px] min-w-[550px] ">
+        <div className="account__watch-list h-full  overflow-scroll  grid grid-cols-3 gap-[15px] gap-y-[30px] min-w-[550px] ">
       {
 
         loopComp(     <div className="account__watch-watch-video relative w-[220px] h-[220px] mr-[20px]">

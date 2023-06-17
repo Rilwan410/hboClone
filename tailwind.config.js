@@ -11,6 +11,7 @@ module.exports = {
     "UI/Account.js",
     "UI/SearchModal.js",
     "components/Login.js",
+    "components/AuthCheck.js",
     "pages/index.js",
     "pages/create.js"
     ],

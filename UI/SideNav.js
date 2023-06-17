@@ -1,9 +1,18 @@
+import { useStateContext } from "@/HBOProvider";
+
+
 export default function SideNav() {
+const globalState = useStateContext()
+const {setSideNav,sideNav} = globalState
+
+function closeSideNav(){
+  setSideNav(false)
+}
   return (
-    <div className="side-nav  absolute top-0 left-0 bg-black min-h-screen p-[50px] z-[11] translate-x-[-350px] transition duration-400 ease-in-out ">
+    <div className={`side-nav ${sideNav ? "side-nav__active" : '' }  absolute top-0 left-0 bg-black min-h-screen p-[50px] z-[11] translate-x-[-350px] transition duration-400 ease-in-out `}>
 
 
-      <div className="side-nav__close-btn h-[50px] absolute left-[290px] top-0 w-[50px] text-2xl flex items-center justify-center cursor-pointer">
+      <div className="side-nav__close-btn h-[50px] absolute left-[290px] top-0 w-[50px] text-2xl flex items-center justify-center cursor-pointer" onClick = {closeSideNav}>
         <i className="fas fa-times" />
         </div>
         <ul className="side-nav__main">
