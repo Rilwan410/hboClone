@@ -19,7 +19,7 @@ export default function Header({}) {
   const globalState = useStateContext()
   const {userImage, sideNav, setSideNav, setSearchModal, searchModal, accountOpen, setAccountOpen} = globalState
   return (
-    <header className="top-header  bg-[rgba(0,0,0,0)] flex justify-between items-center fixed top-0 left-0 w-full z-10 transition duration-300 ease-in-out  hover:bg-[rgba(0,0,0,1)] px-[50px] py-[15px] text-white ">
+    <header className={`top-header  ${sideNav || accountOpen ? "modal__open" : ''  } bg-[rgba(0,0,0,0)] flex justify-between items-center fixed top-0 left-0 w-full z-10 transition duration-300 ease-in-out  hover:bg-[rgba(0,0,0,1)] px-[50px] py-[15px] text-white `}>
       <div className="top-header__left-side flex">
         <div className="top-header__menu-btn mr-[40px]">
           <i className="fas fa-bars cursor-pointer" onClick={sideNavigation}  />

@@ -10,6 +10,7 @@ module.exports = {
     "UI/CastInfo.js",
     "UI/Account.js",
     "UI/SearchModal.js",
+    "UI/MediaRow.js",
     "components/Login.js",
     "components/AuthCheck.js",
     "pages/index.js",

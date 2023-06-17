@@ -9,12 +9,13 @@ function closeSideNav(){
   setSideNav(false)
 }
   return (
-    <div className={`side-nav ${sideNav ? "side-nav__active" : '' }  absolute top-0 left-0 bg-black min-h-screen p-[50px] z-[11] translate-x-[-350px] transition duration-400 ease-in-out `}>
+    <div className={`side-nav ${sideNav ? "side-nav__active" : '' } w-[350px]  overflow-scroll fixed top-0 left-0 bg-black min-h-screen p-[50px] z-[11] translate-x-[-350px] transition duration-400 ease-in-out `}>
 
 
-      <div className="side-nav__close-btn h-[50px] absolute left-[290px] top-0 w-[50px] text-2xl flex items-center justify-center cursor-pointer" onClick = {closeSideNav}>
+      <div className="side-nav__close-btn h-[50px] absolute  left-[290px] top-0 w-[50px] text-2xl flex items-center justify-center cursor-pointer" onClick = {closeSideNav}>
         <i className="fas fa-times" />
         </div>
+        <div className = "h-full absolute overflow-scroll">
         <ul className="side-nav__main">
           <li className = "">
             <a href="/" className="active">
@@ -117,7 +118,7 @@ function closeSideNav(){
           <a href="/">Suspence</a>
         </li>
       </ul>
-
+      </div>
       
     </div>
   );
