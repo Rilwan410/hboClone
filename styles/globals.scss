@@ -183,3 +183,25 @@ body {
   height: 394px;
 }
   
+.media-row__thumbnail-skeleton-img::before{
+content: '';
+position:absolute;
+left:0;
+top:0;
+width:100%;
+background: rgba(255,255,255, 0.082);
+height:100%;
+transform:skew(5deg);
+animation: shine infinite 1.5s ease-in-out;
+filter:blur(100px);
+}
+
+@keyframes shine {
+  0% {
+    transform:skew(45deg) translateX(-200%)
+  }
+
+  100%{
+    transform:skew(45deg) translateX(300%);
+  }
+}

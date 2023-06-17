@@ -11,8 +11,7 @@ export default function AuthCheck(component) {
 
   useEffect(() => {
     if (activeUID == null && users == false) router.push("/create");
-    if (users != false && activeUID != null) setuserLoggedIn(true)
-    
+    if (users != false && activeUID != null) setuserLoggedIn(true);
   }, []);
 
   if (users != false && activeUID != null) {
@@ -20,15 +19,17 @@ export default function AuthCheck(component) {
       component
     ) : (
       <div className="create-user  w-full h-screen grid place-items-center">
-      
-        <h1 className = "place-self-center text-5xl font-light">Cannot Find Requested Page</h1>
+        <h1 className="place-self-center text-5xl font-light">
+          Cannot Find Requested Page
+        </h1>
       </div>
     );
   } else {
     return (
-      <div className="create-user w-full h-screen grid place-items-center ">
-     
-        <h1 className = "place-self-center text-5xl font-light">Cannot Find Requested Page</h1>
+      <div className="create-user  w-full h-screen grid place-items-center">
+        <h1 className="place-self-center text-5xl font-light">
+          Cannot Find Requested Page
+        </h1>
       </div>
     );
   }

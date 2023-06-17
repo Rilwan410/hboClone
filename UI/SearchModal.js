@@ -25,7 +25,7 @@ function closeSearchModal(){
         <input
           type="text"
           placeholder="Search For A Title"
-          value=""
+          // value=""
           className="search-modal__input bg-transparent text-[4rem] border-b-[2px] outline-none border-b-[rgb(132,0,255)]"
         />
         

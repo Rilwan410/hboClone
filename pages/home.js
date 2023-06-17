@@ -1,17 +1,14 @@
 import MainLayout from "@/components/mainLayout";
 import FeaturedMedia from "@/UI/FeaturedMedia";
-import ForYouList from "@/UI/deletedFiles/ForYouList";
-import JustAdded from "@/UI/deletedFiles/JustAdded";
-import PosterView from "@/UI/deletedFiles/PosterView";
-
+import MediaRow from "@/UI/MediaRow";
 export default function HomeView() {
   return (
     <>
       <MainLayout>
         <FeaturedMedia />
-        <ForYouList />
-        <JustAdded />
-        <PosterView/>
+        <MediaRow title="For You" size="large-v" />
+        <MediaRow title="Just Added" size="large-v" />
+        <MediaRow title="Movies" size="large-v" />
       </MainLayout>
     </>
   );
