@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 export const StateContext = React.createContext();
 
 export function useStateContext() {
@@ -11,6 +11,11 @@ export default function HBOProvider({ children }) {
   const [searchModal, setSearchModal] = useState(false)
   const [user, setUser] = useState("");
   const [accountOpen, setAccountOpen] = useState(false)
+  const [loadingData, setLoadingData] =  useState(true)
+
+  useEffect(() => {
+    setLoadingData(false)
+  })
 
   function createUser(e) {
     setUser(e.target.value);
@@ -46,7 +51,9 @@ export default function HBOProvider({ children }) {
         searchModal,
         setSearchModal,
         accountOpen, 
-        setAccountOpen
+        setAccountOpen,
+        loadingData, 
+        setLoadingData
       }}
     >
       {children}

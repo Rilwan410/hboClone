@@ -2,15 +2,30 @@ import { v4 } from "uuid";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import shuffleArray from "@/components/utilities";
+import Link from "next/link";
+import { useStateContext } from "@/HBOProvider";
+import Mounted from "./Mounted";
+import HBOProvider from "@/HBOProvider";
 
-export default function MediaRow({ title, size, endpoint }) {
-  const [loadingData, setLoadingData] = useState(true);
+export default function MediaRow({ title, size, endpoint, category }) {
+  const globalState = useStateContext();
+  const { loadingData, setLoadingData } = globalState;
   const [movies, setMovies] = useState([]);
+
+  // category === 'tv' ? `/tv/${id}` :
 
   function showThumbnails() {
     return loadingData
       ? loopComp(<Skeleton size={size} />, 10)
-      : movies.map((movie) => <Thumbnail movieData={movie} size={size} />);
+      : movies.map((movie, id) => {
+          setLoadingData(false);
+          id = movie.id;
+          return (
+            <Link href={`/movie/${id}`}>
+              <Thumbnail movieData={movie} size={size} />
+            </Link>
+          );
+        });
   }
 
   function loopComp(comp, digit) {
@@ -20,25 +35,27 @@ export default function MediaRow({ title, size, endpoint }) {
     }
     return thumbnails;
   }
+  //api.themoviedb.org/3/movie/{movie_id}/creditsapi_key=1418807822dc08d848a20722bb586c6f&language=en-US
 
   // https://api.themoviedb.org/3/discover/movie?with_genres=28&primary_release_year=2023&api_key=1418807822dc08d848a20722bb586c6f&language=en-US // Discover Movies
 
-  useEffect(() => {
+  https: useEffect(() => {
     axios
       .get(
         `https://api.themoviedb.org/3/${endpoint}api_key=1418807822dc08d848a20722bb586c6f&language=en-US`
       )
       .then((success) => {
         setMovies(shuffleArray(success.data.results));
-        console.log(success.data.results);
+        (success.data.results);
         setLoadingData(false);
       })
       .catch((error) => {
-        console.log("This is a failure of wild proportions");
+        (error);
       });
   }, []);
+  //endpoint
 
-  //   console.log(movies)
+  //   (movies)
   return (
     <div>
       <div className="media-row-list py-[20px] px-[20px]">
@@ -76,7 +93,9 @@ function Thumbnail({ size, movieData }) {
         size ? size : ""
       } flex-none w-[400px] h-[600px] relative`}
     >
-      <img src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}/>
+      <img
+        src={`https://image.tmdb.org/t/p/original/${movieData.poster_path}`}
+      />
       <div className="media-row-list__top-player bg-[linear-gradient(328deg,rgba(94,158,255,1)0%,rgba(119,30,135,1)100%,rgba(60,38,135,1)100%,rgba(60,38,184,1)100%,rgba(0,0,0,1)100%)] h-full w-full absolute top-0 left-0 z-2 flex justify-center items-center opacity-0 transition-opacity duration-400 ease-in-out hover:opacity-90 hover:cursor-pointer ">
         <i className="fas fa-play text-[4rem] translate-y-[100px] duration-300 ease-in-out delay-[.2s] opacity-0" />
       </div>
