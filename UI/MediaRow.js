@@ -7,7 +7,7 @@ import { useStateContext } from "@/HBOProvider";
 import Mounted from "./Mounted";
 import HBOProvider from "@/HBOProvider";
 
-export default function MediaRow({ title, size, endpoint, category }) {
+export default function MediaRow({ title, size, endpoint, category, mediaType, }) {
   const globalState = useStateContext();
   const { loadingData, setLoadingData } = globalState;
   const [movies, setMovies] = useState([]);
@@ -21,8 +21,8 @@ export default function MediaRow({ title, size, endpoint, category }) {
           setLoadingData(false);
           id = movie.id;
           return (
-            <Link href={`/movie/${id}`}>
-              <Thumbnail movieData={movie} size={size} />
+            <Link href={`${category === "tv" || mediaType === 'tv' ? `/tv/${id}` : `/movie/${id}`}`}>
+              <Thumbnail movieData={movie} size={size}  />
             </Link>
           );
         });
@@ -46,13 +46,14 @@ export default function MediaRow({ title, size, endpoint, category }) {
       )
       .then((success) => {
         setMovies(shuffleArray(success.data.results));
-        (success.data.results);
+        console.log(movies)
+        success.data.results;
         setLoadingData(false);
       })
       .catch((error) => {
-        (error);
+        error;
       });
-  }, []);
+  }, [endpoint]);
   //endpoint
 
   //   (movies)
@@ -60,7 +61,7 @@ export default function MediaRow({ title, size, endpoint, category }) {
     <div>
       <div className="media-row-list py-[20px] px-[20px]">
         <h3 className="media-row-list__title font-[500] text-white text-2xl mb-4">
-          {title}
+          {`${movies == false ? '' : title}`}
         </h3>
         <div className="media-row-list__thumbnails  flex flex-nowrap min-w-full gap-[10px]  w-[calc(100vw-70px)]  overflow-x-scroll">
           {showThumbnails()}

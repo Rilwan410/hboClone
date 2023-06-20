@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-export default function CastInfo({ mediaID}) {
+export default function CastInfo({ mediaID, mediaType}) {
     const [credits, setCredits] = useState([])
     const [crew, setCrew] = useState([])
   
@@ -10,7 +10,7 @@ export default function CastInfo({ mediaID}) {
   useEffect(() => {
     axios
       .get(
-        `https://api.themoviedb.org/3/movie/${mediaID}/credits?api_key=1418807822dc08d848a20722bb586c6f&%22`
+        `https://api.themoviedb.org/3/${mediaType}/${mediaID}/credits?api_key=1418807822dc08d848a20722bb586c6f&%22`
       )
       .then((success) => {
         setCredits(success.data.cast.slice(0,20))
@@ -33,7 +33,7 @@ console.log(crew)
   return (
     <div className="cast-info p-[50px]">
       <div className="cast-info__group-title text-[1.7rem] font-bold mb-8">
-        Cast 
+      {`${credits == false ? '' : "Cast" }`}
       </div>
       <div className="cast-info__list flex flex-col gap-[5px] text-[1.2rem] ">
       {credits.map(cast => {
@@ -47,7 +47,7 @@ console.log(crew)
 
       </div>
       <div className="cast-info__group-title text-[1.7rem] font-bold my-8">
-        Crew
+        {`${crew == false ? '' : "Crew" }`}
       </div>
       <div className="cast-info__list flex flex-col gap-[5px] text-[1.2rem] ">
       {crew.map(crew => {
