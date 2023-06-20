@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Placeholder from "@/UI/Placeholder";
-import LazyLoad from "react-lazyload";
+// import LazyLoad from "react-lazyload";
 
 export default function SingleMedia() {
   const router = useRouter();
@@ -35,18 +35,18 @@ export default function SingleMedia() {
         mediaURL={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}
         type="single"
       />
-      <LazyLoad
+      {/* <LazyLoad
         offset={-400}
         placeholder={
           <Placeholder size={"small-v"} title={"Similar Searches"} />
         }
-      >
+      > */}
         <MediaRow
           title={"Similar Searches"}
           size={"small-v"}
           endpoint={`movie/${id}/similar?`}
         />
-      </LazyLoad>
+      {/* </LazyLoad> */}
       <CastInfo mediaID = {id} />
     </MainLayout>
   );
